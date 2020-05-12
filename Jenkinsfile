@@ -17,32 +17,32 @@ pipeline {
     always {
       echo 'This is always run'
       deleteDir()
-      mail to: 'mayquanxi@gmail.com', subject: 'always send admin: ${currentBuild.fullDisplayName}', body: 'jus has someone run pipeline'
+      mail to: "mayquanxi@gmail.com", subject: "always send admin: ${currentBuild.fullDisplayName}", body: "jus has someone run pipeline"
     }
   }
   post {
     success {
       echo 'This will run only if successful'
-      mail to: 'khacmanhk45s1@gmail.com', subject: 'you have ran successful', body: 'you have ran successful'
+      mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful", body: "you have ran successful"
     }
   }
   post {
     failure {
       echo 'This will run only if failed'
-      email to: 'khacmanhk45s1@gmail.com', subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', body: 'Something is wrong with ${env.BUILD_URL}'
+      email to: "khacmanhk45s1@gmail.com", subject: "Failed Pipeline: ${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}"
     }
   }
   post {
     unstable {
       echo 'This will run only if the run was marked as unstable'
-      email to: 'khacmanhk45s1@gmail.com', subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', body: 'This will run only if the run was marked as unstable'
+      email to: "khacmanhk45s1@gmail.com", subject: "Failed Pipeline: ${currentBuild.fullDisplayName}", body: "This will run only if the run was marked as unstable"
     }
   }
   post {
     changed {
       echo 'This will run only if the state of the Pipeline has changed'
       echo 'For example, if the Pipeline was previously failing but is now successful'
-      email to: 'khacmanhk45s1@gmail.com', subject: 'changed: ${currentBuild.fullDisplayName}', body: 'jus changed pipeline'
+      email to: "khacmanhk45s1@gmail.com", subject: "changed: ${currentBuild.fullDisplayName}", body: "jus changed pipeline"
     }
   }
 }
