@@ -19,6 +19,10 @@ pipeline {
       echo 'This will run only if successful'
       mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful", body: "you have ran successful"
     }
-   
+    always {
+      echo 'This is always run'
+      deleteDir()
+      mail to: "mayquanxi@gmail.com", subject: "always send admin: ${currentBuild.fullDisplayName}", body: "jus has someone run pipeline"
+    }
   }
 }
