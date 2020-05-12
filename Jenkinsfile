@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'echo "this is stage Test"'
+        sh 'echod "this is stage Test"'
         sh 'whoami'
       }
     }
