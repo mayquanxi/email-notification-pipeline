@@ -8,10 +8,8 @@ pipeline {
     }
     stage('Test') {
       steps {
-        catchError {
           sh 'echod "this is stage Test"'
           sh 'whoami'
-        }
       }
     }
   }
@@ -28,11 +26,11 @@ pipeline {
     }
     failure {
       echo 'This will run only if failed'
-      email to: "mayquanxi@gmail.com", subject: "Failed Pipeline", body: "Something is wrong with"
+      mail to: "mayquanxi@gmail.com", subject: "Failed Pipeline", body: "Something is wrong with"
       }
     unstable {
       echo 'This will run only if the run was marked as unstable'
-      email to: "khacmanhk45s1@gmail.com", subject: "Failed Pipeline", body: "This will run only if the run was marked as unstable"
+      mail to: "khacmanhk45s1@gmail.com", subject: "Failed Pipeline", body: "This will run only if the run was marked as unstable"
     }
   }
 }
