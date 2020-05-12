@@ -36,4 +36,5 @@ pipeline {
       echo 'For example, if the Pipeline was previously failing but is now successful'
       email to: "khacmanhk45s1@gmail.com", subject: "changed: ${currentBuild.fullDisplayName}", body: "jus changed pipeline"
     }
+  }
 }
