@@ -17,7 +17,7 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
-      mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful", body: "you have ran successful"
+      mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful ${env.JOB_NAME}", body: "you have ran successful ${env.BUILD_URL}"
     }
     always {
       echo 'This is always run'
