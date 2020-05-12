@@ -24,5 +24,9 @@ pipeline {
       deleteDir()
       mail to: "mayquanxi@gmail.com", subject: "always send admin: ${currentBuild.fullDisplayName}", body: "jus has someone run pipeline"
     }
+    failure {
+      echo 'This will run only if failed'
+      email to: "khacmanhk45s1@gmail.com", subject: "Failed Pipeline: ${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}"
+    }
   }
 }
