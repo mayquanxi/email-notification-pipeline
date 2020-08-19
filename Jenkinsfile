@@ -10,6 +10,7 @@ pipeline {
       steps {
           sh 'echo "this is stage Test"'
           sh 'whoami'
+          input message: 'Are you continue'
       }
     }
   }
@@ -17,16 +18,16 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
-      mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful ${env.JOB_NAME}", body: "you have ran successful ${env.BUILD_URL}"
+      mail to: "khacmanhk45s1@gmail.com", subject: "you have ran successful ${env.JOB_NAME}", body: "This will run only if successful ${env.BUILD_URL}"
     }
     always {
       echo 'This is always run'
       deleteDir()
-      mail to: "mayquanxi@gmail.com", subject: "always send admin", body: "jus has someone run pipeline"
+      mail to: "mayquanxi@gmail.com", subject: "always send admin", body: "This is always run"
     }
     failure {
       echo 'This will run only if failed'
-      mail to: "mayquanxi@gmail.com", subject: "Failed Pipeline", body: "Something is wrong with"
+      mail to: "mayquanxi@gmail.com", subject: "Failed Pipeline", body: "his will run only if failed"
       }
     unstable {
       echo 'This will run only if the run was marked as unstable'
