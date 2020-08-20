@@ -22,7 +22,7 @@ pipeline {
     always {
       echo 'This is always run'
       deleteDir()
-      mail to: "mayquanxi@gmail.com", subject: "always send admin", body: "This is always run"
+      emailext to: "mayquanxi@gmail.com", cc: "mayquanxi@gmail.com" subject: "always send admin", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], body: "This is always run"
     }
     failure {
       echo 'This will run only if failed'
