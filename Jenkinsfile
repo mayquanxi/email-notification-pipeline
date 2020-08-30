@@ -22,7 +22,16 @@ pipeline {
     always {
       echo 'This is always run'
       deleteDir()
-      emailext to: "khacmanhk45s1@gmail.com", subject: "always send admin", body: "This is always run"
+      emailext ( 
+        body: '''
+          This is mail test
+          Jobs Name: ${env.JOB_NAME}
+          Build Number: ${env.BUILD_NUMBER}
+          ''',
+        recipientProviders: [developers()], 
+        subject: 'TEST MAIL', 
+        to: 'khacmanhk45s1@gmail.com' 
+      )
     }
     failure {
       echo 'This will run only if failed'
