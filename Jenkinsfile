@@ -17,7 +17,7 @@ pipeline {
     
     success {
       echo 'This will run only if successful'
-      emailext to: "khacmanhk45s1@gmail.com", subject: "you have ran successful ${env.JOB_NAME}", body: "This will run only if successful ${env.BUILD_URL}"
+      emailext to: "khacmanhk45s1@gmail.com", subject: "Email successful ${env.JOB_NAME}", body: "This will run only if successful ${env.BUILD_URL}"
     }
     always {
       echo 'This is always run'
@@ -29,7 +29,7 @@ pipeline {
           Build Number: ${env.BUILD_NUMBER}
           Build URL: ${env.BUILD_URL}
           """,
-        subject: 'TEST MAIL', 
+        subject: 'Email Always', 
         to: 'khacmanhk45s1@gmail.com' 
       )
     }
