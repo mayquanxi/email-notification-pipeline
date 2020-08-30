@@ -23,11 +23,12 @@ pipeline {
       echo 'This is always run'
       deleteDir()
       emailext ( 
-        body: '''
+        body: """
           This is mail test
           Jobs Name: ${env.JOB_NAME}
           Build Number: ${env.BUILD_NUMBER}
-          ''',
+          Build URL: ${env.BUILD_URL}
+          """,
         subject: 'TEST MAIL', 
         to: 'khacmanhk45s1@gmail.com' 
       )
