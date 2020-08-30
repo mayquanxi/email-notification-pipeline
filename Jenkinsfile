@@ -28,7 +28,6 @@ pipeline {
           Jobs Name: ${env.JOB_NAME}
           Build Number: ${env.BUILD_NUMBER}
           ''',
-        recipientProviders: [developers()], 
         subject: 'TEST MAIL', 
         to: 'khacmanhk45s1@gmail.com' 
       )
